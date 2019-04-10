@@ -75,7 +75,7 @@ function createEKS {
         aws cloudformation create-stack \
             --stack-name ${STACK_NAME} \
             --template-body "$(cat resources/cloudformation/spinnaker-eks-ec2.yaml)" \
-            --parameters "ParameterKey=SpinnakerBucketName,ParameterValue=${SPINNAKER_BUCKET}-${ACCOUNT_ID}" \
+            --parameters "ParameterKey=SpinnakerBucketName,ParameterValue=${SPINNAKER_BUCKET}-mva" \
             --capabilities CAPABILITY_NAMED_IAM
     echo "Waiting for stack creation complete"
     aws cloudformation wait stack-create-complete --stack-name ${STACK_NAME}
